@@ -1,12 +1,12 @@
 #include<stdio.h>
 #include<conio.h>
 #include<stdlib.h>
-#define MAX 5
+#define MAX 3
 int queue[MAX];
 int rear =-1, front =0;
-void enqueue(int n);
-int dequeue();
-int display();
+void Enqueue(int n);
+int Dequeue();
+int Display();
 
 int isFull(){
     if(rear >= MAX-1){
@@ -25,25 +25,25 @@ int isEmpty(){
 }
 
 int main(){
-    int n, item;
+    int n, value;
     while(1){
-        printf("To choose your Option::\n 1.Enqueue\t 2.Dequeue \t 3.Display\t 4.Exit\n =>");
+        printf("\nTo choose your Option::\n 1.Enqueue\t 2.Dequeue \t 3.Display\t 4.Exit\n =>");
         scanf("%d",&n);
 
         switch(n){
             case 1:
                 printf("Enter the inserting value into queue\n =>");
-                scanf("%d"&item);
-                enqueue(item);
+                scanf("%d",&value);
+                Enqueue(value);
                 break;
             
             case 2:
-                item = dequeue();
-                printf("Deleting item is %d", item);
+                value = Dequeue();
+                printf("Deleting value is %d", value);
                 break;
             
             case 3:
-                display();
+                Display();
                 break;
             
             case 4:
@@ -55,10 +55,10 @@ int main(){
 
     }
 }
-void enqueue(int value){
+void Enqueue(int value){
     if(isFull()){
-        printf("Queue is OverFlow");
-        return;
+        printf("Queue is OverFlow !!\n");
+        
     }
     else{
         rear++;
@@ -67,25 +67,24 @@ void enqueue(int value){
     }
 }
 
-int dequeue(){
+int Dequeue(){
     if(isEmpty()){
-        printf("Queue is UnderFlow !");
-        exit(1);
+        printf("Queue is UnderFlow!!\n");
+        
     }
     else{
-        int value = queue[front--];
+        int value = queue[front++];
         return value;
     }
 }
-int display(){
+int Display(){
     if(isEmpty()){
-        printf("Que is Underflow\n");
+        printf("Queue is Underflow\n");
         exit(1);
     }
     else{
         printf("Showing Queue item :-\n");
-        for(int i=0;i<rear; i++){
-            // for(front=0; front <rear; front++){
+        for(int i=front;i<=rear; i++){
             printf("%d\t",queue[i]);
         }
     }
