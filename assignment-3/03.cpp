@@ -9,7 +9,7 @@ int Dequeue();
 int Display();
 
 int isFull(){
-    if(rear >= MAX-1){
+    if(rear > MAX-1){
         return 1;
     }
     else
@@ -17,7 +17,6 @@ int isFull(){
 }
 int isEmpty(){
     if(rear<front){
-        // printf("Queue is Underflow");
         return 1;
     }
     else
