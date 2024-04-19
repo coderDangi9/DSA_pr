@@ -1,0 +1,4 @@
+Doubly Linked List (DLL):-
+    A Linked list in which all nodes are linked together by multiple
+    number of links i.e. each node contain three fields (two pointer
+     field and one data field ).
